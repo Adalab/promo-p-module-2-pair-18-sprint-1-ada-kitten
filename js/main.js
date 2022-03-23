@@ -23,11 +23,25 @@ const catDescription3 =
   "Risueño, juguetón, cariñoso, le guta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!";
 
 const inputSearchDesc = document.querySelector(".js_in_search_desc");
-inputSearchDesc.value = "cariñoso";
+const inputSearchRace = document.querySelector(".js_in_search_race");
+// inputSearchDesc.value = "cariñoso";
+const valueInDesc = inputSearchDesc.value;
+const valueInRace = inputSearchRace.value;
+
 const descrSearchText = inputSearchDesc.value;
-
 const jsList = document.querySelector(".js-list");
-
+const card = document.querySelector(".card");
+const plusItem = document.querySelector(".item");
+const btnAdd = document.querySelector('.js-btn-add');
+const inputDesc = document.querySelector(".js-input-desc");
+const inputPhoto = document.querySelector(".js-input-photo");
+const inputName = document.querySelector(".js-input-name");
+const labelMesageError = document.querySelector(".js-label-error");
+const valueDesc = inputDesc.value;
+const valuePhoto = inputPhoto.value;
+const valueName = inputName.value;
+const searchBtn = document.querySelector(".js-search-btn");
+const labelSearchError = document.querySelector(".js-label-search-error");
 if (catDescription1.includes(descrSearchText)) {
   const listCard1 = `<li class="card"><article><img class="card_img" src=${catImage1} alt="gatito" /> <h3 class="card_title">${catName1.toUpperCase()} </h3> <h4 class="card_race">${catRace1}</h4> <p class="card_description">${catDescription1} </p> </article></li>`;
   jsList.innerHTML = jsList.innerHTML + listCard1;
@@ -52,16 +66,43 @@ jsList.innerHTML = jsList.innerHTML + listCard3;
 jsList.innerHTML = listCard1 + listCard2 + listCard3;
 */
 
-const card = document.querySelector(".card");
-
-if (catDescription.includes(descrSearchText)) {
-  card.classList.remove("collapsed");
+if (catDescription1.includes(descrSearchText)) {
+  jsList.classList.remove("collapsed");
 } else {
-  card.classList.add("collapsed");
+  jsList.classList.add("collapsed");
 }
 
-if (newForm.classList.contains("collapsed")) {
-  newForm.classList.remove("collapsed");
+if (catDescription1.includes(descrSearchText)) {
+  jsList.classList.remove("collapsed");
 } else {
-  newForm.classList.add("collapsed");
+  jsList.classList.add("collapsed");
 }
+
+if (catDescription1.includes(descrSearchText)) {
+  jsList.classList.remove("collapsed");
+} else {
+  jsList.classList.add("collapsed");
+}
+
+
+plusItem.addEventListener("click", () => {
+  /* if (newForm.classList.contains("collapsed")) {
+    newForm.classList.remove("collapsed");
+  } else {
+    newForm.classList.add("collapsed");
+  } */
+  newForm.classList.toggle('collapsed');
+});
+
+btnAdd.addEventListener("click", ()=>{
+  if(valueDesc === "" && valuePhoto === "" && valueName === "") {
+    labelMesageError.innerHTML = "Debe rellenar todos los valores.";
+  }
+})
+
+searchBtn.addEventListener("click", (event)=> {
+  event.preventDefault();
+  if(valueInDesc === "" && valueInRace === "") {
+    labelSearchError.innerHTML = "Debe rellenar todos los valores.";
+  }
+})
