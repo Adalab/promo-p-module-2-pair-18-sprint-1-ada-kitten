@@ -46,9 +46,19 @@
             placeholder="Url de la foto"
             required
           />
-          <input class="input js-input-name" type="text" placeholder="Nombre" required />
-          <input class="input" type="text" placeholder="Raza" />
-          <input class="input js-input-desc" type="text" placeholder="Descripción" required />
+          <input
+            class="input js-input-name"
+            type="text"
+            placeholder="Nombre"
+            required
+          />
+          <input class="input js-inputRace" type="text" placeholder="Raza" />
+          <input
+            class="input js-input-desc"
+            type="text"
+            placeholder="Descripción"
+            required
+          />
           <label class="js-label-error"></label>
           <button class="button js-btn-add">Añadir</button>
           <button class="button-cancel">Cancelar</button>
@@ -64,23 +74,26 @@
         <h2 class="title">Filtrar / Buscar</h2>
         <form class="form">
           <label class="js-label-search-error"></label>
-          <input class="input js_in_search_desc" type="text" placeholder="Descripción" />
+          <input
+            class="input js_in_search_desc"
+            type="text"
+            placeholder="Descripción"
+          />
           <input
             class="input js_in_search_race"
             type="select"
             name="raza"
             placeholder="Raza"
-            id="raza" value=""
+            id="raza"
+            value=""
           />
-         
+
           <button class="button js-search-btn">Buscar</button>
-        
         </form>
       </section>
 
       <section class="data">
-        <ul class="list js-list">
-        </ul>
+        <ul class="list js-list"></ul>
       </section>
     </main>
     <footer class="footer">
