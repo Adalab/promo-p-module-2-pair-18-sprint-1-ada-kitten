@@ -95,12 +95,6 @@ if (catDescription1.includes(descrSearchText)) {
   newForm.classList.toggle('collapsed');
 }); */
 
-btnAdd.addEventListener('click', () => {
-  if (valueDesc === '' && valuePhoto === '' && valueName === '') {
-    labelMesageError.innerHTML = 'Debe rellenar todos los valores.';
-  }
-});
-
 searchBtn.addEventListener('click', (event) => {
   event.preventDefault();
   if (valueInDesc === '' && valueInRace === '') {
@@ -140,3 +134,33 @@ btnAdd.addEventListener('click', addNewKitten);
 function addNewKitten(event) {
   return;
 }
+
+// 25/03 OBJETOS 
+
+function getKittenData() {
+  const kittenData = {};
+  kittenData.name = inputName.value;
+  kittenData.photo = inputPhoto.value;
+  kittenData.desc = inputDesc.value;
+  kittenData.race = inputRace.value;
+  return kittenData;  
+}
+
+function paintHTML (kitten) {
+  jsList.innerHTML += `<li class="card"> <img class="card_img" src=${kitten.photo} alt="gatito"/> <h3 class="card_title">${kitten.name}</h3> <h4 class="card_race">${kitten.race}</h4> <p class="card_description">${kitten.desc}</p></li>`;
+}
+
+function handleClick1 (event) {
+  event.preventDefault();
+  if (valueDesc === '' && valuePhoto === '' && valueName === '') {
+    labelMesageError.innerHTML = 'Debe rellenar todos los valores.';
+  } else{};
+  const kitten = getKittenData();
+  paintHTML(kitten);
+}
+
+
+btnAdd.addEventListener('click', handleClick1)
+ 
+
+console.log(getKittenData);
